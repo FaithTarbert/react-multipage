@@ -5,7 +5,7 @@ import './Home.css'
 
 export default function Home() {
 
-    const { data: articles, isPending, errors } = useFetch('http://localhost:3000/articles')
+    const { data: articles, isPending, error } = useFetch('http://localhost:3000/articles')
 
     return (
         <div className='home'>
@@ -13,7 +13,7 @@ export default function Home() {
             {/* msg for when isFetch is loading data */}
             {isPending && <div>Loading...</div>}
             {/* msg for when isFetch has any errors */}
-            {errors && <div>Errors: {errors}</div>}
+            {error && <div>Error: {error}</div>}
             {/* when articles have loaded, map them */}
             {articles && articles.map((article) => (
                 // templating is returned for each article
