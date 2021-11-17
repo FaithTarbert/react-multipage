@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 
 //page components
+//home is the contents of index
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
@@ -27,6 +28,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           {/* to load an article details page dynamically by id, use a route parameter ie '.../:id' where the variable after the colon is whatever you want to call it, usually id*/}
           <Route path='/articles/:id' element={<Article />} />
+          {/* to create a redirect catchall for any urls that don't exist use wildcard */}
+          <Route path='*' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>
